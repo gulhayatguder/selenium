@@ -17,6 +17,7 @@ public class E06_faceebookaGit {
         //1- https://www.facebook.com adresine gidin
         driver.get("https://www.facebook.com ");
 
+
         //2- cookies cikarsa kabul et butonuna bas
 
        driver.findElement(By.xpath("//*[@id=\"u_0_e_Gw\"]")).click();
