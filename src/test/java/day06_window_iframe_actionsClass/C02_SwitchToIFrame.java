@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
-public class C02_IFrame extends TestBase {
+public class C02_SwitchToIFrame extends TestBase {
     @Test
-    public void test01() {
+    public void test01(){
         // https://the-internet.herokuapp.com/iframe  adresine gidin
         driver.get("https://the-internet.herokuapp.com/iframe");
         // "Your content goes here." yazisinin gorunur oldugunu test edin
@@ -28,17 +28,27 @@ public class C02_IFrame extends TestBase {
             2- switchTo() ile o frame'e gecis yapin
             3- Sonra istediginiz element ile istediginiz islemi yapin
          */
-        WebElement frameElementi = driver.findElement(By.id("mce_0_ifr"));
+        WebElement frameElementi= driver.findElement(By.id("mce_0_ifr"));
         driver.switchTo().frame(frameElementi);
+
+
         WebElement yaziElementi = driver.findElement(By.tagName("p"));
         Assert.assertTrue(yaziElementi.isDisplayed());
 
-        // Elementel Selenium linkine click yapin
+        // Elemental Selenium linkine click yapin
+        /*
+            Bir frame'e gecis yaptiktan sonra
+            oradan cikincaya veya baska bir frame'e gecinceye kadar
+            driver o frame icerisinde kalir
+            isimiz bittiginde veya baska frame'e gecmek istedigimizde
+            once calisacagimiz yere gecis yapmaliyiz
+         */
 
-        /*Bir frame'e gecis yaptiktan sonra oradan cikinca
-        *
-        * */
-        driver.findElement(By.xpath("Elementel Selenium")).click();
+        driver.switchTo().parentFrame(); // icice frame'lerde bir ust seviyeye cikar
+        //driver.switchTo().defaultContent();// direk anasayfaya cikar
+        driver.findElement(By.linkText("Elemental Selenium")).click();
+
+
         bekle(3);
 
     }
