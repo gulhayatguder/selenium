@@ -21,7 +21,6 @@ public class C09_Waits {
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
         //4. Remove butonuna basin.
         //5. “It’s gone!” mesajinin goruntulendigini dogrulayin.
-        //12:28
-        ////*[text()=‘Remove’]
+
     }
 }
