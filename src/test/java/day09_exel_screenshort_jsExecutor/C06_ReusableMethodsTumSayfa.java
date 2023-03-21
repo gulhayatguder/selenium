@@ -1,20 +1,18 @@
 package day09_exel_screenshort_jsExecutor;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
 import utilities.TestBase;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
-public class C04_TumSayfaScreenshot extends TestBase {
-
+public class C06_ReusableMethodsTumSayfa extends TestBase {
     @Test
-    public void test01() throws IOException {
-
+    public void test01() {
         // amazon anasayfaya gidin
         driver.get("https://www.amazon.com");
 
@@ -33,25 +31,7 @@ public class C04_TumSayfaScreenshot extends TestBase {
 
         // ve rapora eklenmek icin tum sayfanin fotografini cekin
 
-        // Tum sayfa screenshot icin
-        // 1- TakeScreenshot objesi olustur
-
-        TakesScreenshot ts = (TakesScreenshot) driver;
-
-        // 2- screenshot'i kaydedecegimiz bir dosya olusturalim
-
-        File tumSayfaSs = new File("target/screenshot.png");
-
-        // 3- gecici bir dosya olusturup ts objesi ile cekilen fotografi dosyaya kaydediyoruz
-
-        File geciciResim= ts.getScreenshotAs(OutputType.FILE);
-
-        // 4- gecici dosyayi, tumSayfaSs dosyasina kopyalayalim
-
-        FileUtils.copyFile(geciciResim,tumSayfaSs);
-
-        bekle(3);
-
+        //ReusableMethods.tumSayfaScreenshot(driver);
 
     }
 }
